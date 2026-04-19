@@ -1,132 +1,132 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر نوح - طلبات أونلاين</title>
+    <title>متجر نوح - Noah Store</title>
     <style>
-        :root { --primary: #1a252f; --gold: #c5a059; --bg: #f8f9fa; }
-        body { font-family: 'Arial', sans-serif; margin: 0; background: var(--bg); color: #333; }
-        header { background: var(--primary); color: white; padding: 30px; text-align: center; border-bottom: 4px solid var(--gold); }
-        .logo-text { font-size: 32px; color: var(--gold); margin: 0; letter-spacing: 2px; }
-        
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
-        .card img { max-width: 100%; border-radius: 8px; height: 180px; object-fit: cover; }
-        .price { display: block; font-size: 22px; color: #27ae60; margin: 15px 0; font-weight: bold; }
-        
-        .btn { background: var(--primary); color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; }
-        .btn:hover { background: var(--gold); color: var(--primary); }
+        /* إعدادات الألوان الأساسية */
+        :root {
+            --bg-color: #33667c; /* لون خلفية الصورة الدقيق */
+            --gold-accent: #c5a059;
+            --white: #ffffff;
+        }
 
-        /* سلة المشتريات */
-        .cart-panel { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px; box-shadow: 0 -5px 15px rgba(0,0,0,0.2); display: flex; justify-content: space-around; align-items: center; border-top: 3px solid var(--gold); }
-        .btn-order { background: #25d366; color: white; padding: 10px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 18px; }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* الهيدر مع معالجة امتداد الصورة */
+        header {
+            background-color: var(--bg-color); /* اللون اللي هيمد الصورة يمين وشمال */
+            background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png');
+            background-size: contain; /* عشان الصورة تظهر كاملة بدون قص */
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 400px;
+            width: 100%;
+            border-bottom: 4px solid var(--gold-accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* شريط التنقل */
+        nav {
+            background-color: #264d5e; /* درجة أغمق قليلاً للتنقل */
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* تنسيق قسم المنتجات */
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            text-align: center;
+            color: #264d5e;
+            margin-bottom: 30px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 20px;
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-accent);
+        }
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .price {
+            color: #2ecc71;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .btn-add {
+            background-color: #264d5e;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-add:hover {
+            background-color: var(--gold-accent);
+        }
     </style>
 </head>
 <body>
 
-<header style="
-    background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png'); 
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center; 
-    background-color: #0b1d26; 
-    height: 400px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    border-bottom: 4px solid #c5a059; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-">
+    <header></header>
 
-<header style="
-    /* تعيين لون الخلفية الأساسي ليمتد على كامل الشاشة */
-    background-color: #0b1d26; 
-    
-    /* وضع الصورة في المنتصف وتكرار الخلفية حولها */
-    background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png');
-    background-position: center center; 
-    background-repeat: no-repeat; 
-    
-    /* الحفاظ على حجم الصورة الأصلي دون زوم */
-    background-size: contain; 
-    
-    /* إعدادات إظهار الفخامة */
-    height: 450px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    border-bottom: 4px solid #c5a059; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-">
-</header>
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#">المنظفات</a>
+        <a href="#">العطور</a>
+        <a href="#">اتصل بنا</a>
+    </nav>
 
-<div class="container">
-    <h2 style="text-align:center; margin-bottom:30px;">منتجاتنا المختارة</h2>
-    
-    <div class="grid">
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200?text=Noah+Perfume" alt="عطر نوح">
-            <h3>عطر نوح (البراند الخاص)</h3>
-            <span class="price">450 ج.م</span>
-            <button class="btn" onclick="addToCart('عطر نوح', 450)">أضف للسلة</button>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200?text=Detergent" alt="منظف">
-            <h3>منظف ملابس لافندر - 3 لتر</h3>
-            <span class="price">120 ج.م</span>
-            <button class="btn" onclick="addToCart('منظف ملابس لافندر', 120)">أضف للسلة</button>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200?text=Deo" alt="مزيل">
-            <h3>مزيل عرق نوح فريش</h3>
-            <span class="price">85 ج.م</span>
-            <button class="btn" onclick="addToCart('مزيل عرق نوح', 85)">أضف للسلة</button>
-        </div>
+    <div class="container">
+        <h2 class="section-title">منتجاتنا المختارة</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="منتج">
+                <h3>اسم المنتج</h3>
+                <p class="price">450 ج.م</p>
+                <button class="btn-add">أضف للسلة</button>
+            </div>
+            </div>
     </div>
-</div>
 
-<div class="cart-panel">
-    <div>إجمالي الطلب: <span id="total-price" style="font-weight:bold; color:#27ae60;">0</span> ج.م</div>
-    <button class="btn-order" onclick="sendToWhatsApp()">إتمام الطلب عبر واتساب ✅</button>
-</div>
-
-<script>
-    let cart = [];
-    let total = 0;
-
-    function addToCart(name, price) {
-        cart.push({name, price});
-        total += price;
-        document.getElementById('total-price').innerText = total;
-    }
-
-    function sendToWhatsApp() {
-        if (cart.length === 0) {
-            alert("السلة فارغة! اختر بعض المنتجات أولاً.");
-            return;
-        }
-
-        // --- تعديل رقم الموبايل هنا ---
-        let myNumber = "20111730680"; // حط رقمك هنا بالكود الدولي
-        
-        let message = "طلب جديد من متجر نوح:\n\n";
-        cart.forEach((item, index) => {
-            message += `${index + 1}- ${item.name} (${item.price} ج.م)\n`;
-        });
-        message += `\nإجمالي الحساب: ${total} ج.م`;
-        message += "\n\nبرجاء تأكيد الطلب ومعرفة موعد التوصيل.";
-
-        let encodedMessage = encodeURIComponent(message);
-        let whatsappUrl = `https://wa.me/${myNumber}?text=${encodedMessage}`;
-        
-        window.open(whatsappUrl, '_blank');
-    }
-</script>
+</body>
+</html>
 
 </body>
 </html>
