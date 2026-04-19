@@ -88,12 +88,14 @@
         }
         .product-card img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+            height: 320px; /* زيادة الارتفاع قليلاً لتناسب شكل البخاخة */
+            object-fit: contain; /* لضمان ظهور البخاخة كاملة بدون قص */
+            background-color: #fff;
+            padding-top: 10px;
         }
         .price {
             color: #27ae60;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             margin: 10px 0;
         }
@@ -112,7 +114,7 @@
             color: white;
         }
 
-        /* قسم التواصل الجديد */
+        /* قسم التواصل الأسفل */
         .contact-footer {
             background-color: #111;
             color: white;
@@ -165,12 +167,21 @@
     <div class="container" id="products">
         <h2 class="section-title">أحدث منتجات نوح</h2>
         <div class="products-grid">
+            
             <div class="product-card">
-                <img src="https://via.placeholder.com/300x250/111/c5a059?text=Noah+Product" alt="منتج">
-                <h3>اسم المنتج هنا</h3>
-                <p class="price">250 ج.م</p>
+                <img src="https://i.postimg.cc/0jXqXvYn/image-504448.png" alt="بخاخ عطر فريدا">
+                <h3>معطر بخاخ فريدا - 460 مل</h3>
+                <p class="price">55 ج.م</p>
                 <button class="btn-add">أضف للسلة</button>
             </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x320/111/c5a059?text=Noah+Perfume" alt="منتج">
+                <h3>عطر نوح الخاص</h3>
+                <p class="price">قريباً</p>
+                <button class="btn-add">التفاصيل</button>
+            </div>
+
         </div>
     </div>
 
