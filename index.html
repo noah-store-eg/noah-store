@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر نوح - Noah Store</title>
     <style>
-        /* التنسيق الأساسي للموقع */
+        /* إعدادات الألوان - تم سحب الدرجة بدقة من خلفية الصورة */
         :root {
-            --noah-blue: #32657a; /* درجة لون خلفية الصورة الدقيق */
+            --noah-blue: #32657a; 
             --gold-accent: #c5a059;
-            --white: #ffffff;
+            --dark-blue: #1a3a47;
         }
 
         body {
@@ -19,40 +19,41 @@
             background-color: #f8f9fa;
         }
 
-        /* الهيدر مع الزوم آوت المعتدل */
+        /* الهيدر مع Zoom Out إضافي */
         header {
-            /* تعيين اللون الدقيق كخلفية أولية لضمان الامتداد المثالي */
+            /* اللون ده هو اللي بيملا الفراغات حوالين الصورة */
             background-color: var(--noah-blue);
             
             /* رابط الصورة المباشر */
             background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png');
             
-            /* ضبط الزوم: العرض يملأ 100% والطول تلقائي للحفاظ على الأبعاد */
-            background-size: 100% auto;
+            /* تقليل الحجم لـ 80% لعمل Zoom Out وإظهار التفاصيل */
+            background-size: 80% auto;
             
-            /* وضع الصورة في منتصف المساحة */
             background-position: center;
-            
-            /* عدم تكرار الصورة */
             background-repeat: no-repeat;
             
-            /* طول الهيدر - يمكنك تعديله إذا شعرت أنه طويل جداً */
-            height: 480px; 
-            
+            /* ارتفاع الهيدر */
+            height: 450px; 
             width: 100%;
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            
-            /* شريط ذهبي أسفل الهيدر */
             border-bottom: 5px solid var(--gold-accent);
-            
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* تنسيق الموبايل - عشان الصورة متصغرش زيادة عن اللزوم */
+        @media (max-width: 768px) {
+            header {
+                background-size: 95% auto;
+                height: 300px;
+            }
         }
 
         /* شريط التنقل */
         nav {
-            background-color: #1a3a47; /* درجة داكنة متناسقة */
+            background-color: var(--dark-blue);
             padding: 15px 0;
             text-align: center;
         }
@@ -62,13 +63,9 @@
             margin: 0 20px;
             font-weight: bold;
             font-size: 18px;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: white;
         }
 
-        /* تنسيق شبكة المنتجات */
+        /* قسم المنتجات */
         .container {
             padding: 50px 20px;
             max-width: 1200px;
@@ -76,9 +73,8 @@
         }
         .section-title {
             text-align: center;
-            color: #1a3a47;
+            color: var(--dark-blue);
             margin-bottom: 40px;
-            font-size: 28px;
         }
         .products-grid {
             display: grid;
@@ -88,40 +84,19 @@
         .product-card {
             background: white;
             border-radius: 15px;
-            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
-            padding-bottom: 25px;
-            transition: 0.3s;
+            padding: 20px;
             border: 1px solid #eee;
         }
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold-accent);
-        }
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .price {
-            color: #27ae60;
-            font-size: 22px;
-            font-weight: bold;
-            margin: 15px 0;
-        }
         .btn-add {
-            background-color: #1a3a47;
+            background-color: var(--dark-blue);
             color: white;
             border: none;
             padding: 12px 30px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn-add:hover {
-            background-color: var(--gold-accent);
         }
     </style>
 </head>
@@ -131,3 +106,22 @@
 
     <nav>
         <a href="#">الرئيسية</a>
+        <a href="#">المنظفات</a>
+        <a href="#">العطور</a>
+        <a href="#">تواصل معنا</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">منتجات براند نوح</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200/32657a/ffffff?text=Noah+Product" alt="منتج" style="width:100%; border-radius:10px;">
+                <h3>اسم المنتج</h3>
+                <p style="color: #27ae60; font-weight: bold;">السعر: 150 ج.م</p>
+                <button class="btn-add">أضف للسلة</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
