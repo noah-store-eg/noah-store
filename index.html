@@ -32,15 +32,15 @@
 
         /* --- إعدادات الموبايل (عشان يفضل مظبوط) --- */
         @media (max-width: 768px) {
-            .header-container {
-                height: 250px; /* ارتفاع أصغر للموبايل */
-            }
-            .header-container img {
-                width: 100%; 
-                object-fit: cover;
-                object-position: center 10%; /* يرفع اللوجو لفوق شوية عشان يبان في الموبايل */
-            }
-        }
+    .header-container {
+        height: 180px; /* جرب تصغر الارتفاع هنا، ده هيقلل الزووم تلقائياً */
+    }
+    .header-container img {
+        width: 100%; 
+        object-fit: contain; /* جرب دي وشوف لو اللوجو بقى أوضح والحواف مقبولة */
+        background-color: #032e3b; /* عشان لو ظهر حواف تكون بنفس اللون */
+    }
+}
 
         /* باقي التنسيقات (المنيو والمنتجات) */
         nav { background-color: #111; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
