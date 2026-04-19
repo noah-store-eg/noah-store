@@ -13,24 +13,18 @@
             background-color: #f4f4f4; color: #333; scroll-behavior: smooth;
         }
 
-        /* تعديل الهيدر ليناسب الموبايل والكمبيوتر */
+        /* تنسيق الهيدر المطور لمنع الحواف السوداء */
         header {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png'); 
-            background-size: contain; /* يضمن ظهور اللوجو كاملاً */
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png'); 
+            background-size: contain; /* للكمبيوتر يظهر اللوجو كاملاً */
             background-repeat: no-repeat;
             background-position: center;
-            background-color: #111; /* خلفية سوداء للمساحات الجانبية */
+            background-color: #052e3b; /* نفس درجة لون خلفية الصورة بالظبط لمنع الحواف */
             height: 500px; 
             display: flex; flex-direction: column; align-items: center; justify-content: center; 
-            text-align: center; color: white; border-bottom: 5px solid #c5a059;
+            text-align: center; border-bottom: 4px solid #c5a059;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-
-        header h1 {
-            font-size: 50px; margin: 0; color: #c5a059;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-        header p { font-size: 20px; margin-top: 10px; }
 
         nav {
             background-color: #111; padding: 15px 0; text-align: center;
@@ -65,7 +59,6 @@
         }
         .img-back { opacity: 0; }
         
-        /* تأثير الـ Hover للكمبيوتر */
         .product-card:hover .img-back { opacity: 1; }
         .product-card:hover .img-front { opacity: 0; }
 
@@ -95,25 +88,22 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 1000; transition: 0.3s;
         }
 
-        /* استعلامات الوسائط لضبط الموبايل */
+        /* إعدادات الموبايل لمنع الحواف السوداء والزووم السيء */
         @media (max-width: 600px) {
             header {
-                height: 300px; /* تقليل الارتفاع في الموبايل */
-                background-size: 80%; /* تصغير اللوجو عشان يظهر كامل */
+                height: 250px; 
+                background-size: cover; /* في الموبايل الصورة تملا المكان بالكامل */
+                background-position: center;
             }
-            header h1 { font-size: 30px; }
-            header p { font-size: 16px; }
             .product-card { width: 100%; }
             .image-container { height: 300px; }
+            nav a { margin: 0 8px; font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>متجر نوح</h1>
-        <p>ملفت للعطور والمنظفات</p>
-    </header>
+    <header></header>
 
     <nav>
         <a href="#">الرئيسية</a>
@@ -122,7 +112,7 @@
     </nav>
 
     <div class="container" id="products">
-        <h2 class="section-title">أحدث منتجاتنا</h2>
+        <h2 class="section-title">أحدث منتجات نوح</h2>
         <div class="products-grid">
             <div class="product-card">
                 <div class="image-container">
