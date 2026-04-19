@@ -13,16 +13,35 @@
             background-color: #f4f4f4; color: #333; scroll-behavior: smooth;
         }
 
-        /* --- إعدادات الكمبيوتر (Desktop) --- */
-        header {
-            background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png'); 
-            background-size: contain; /* إظهار الصورة كاملة بالعرض */
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-color: #052e3b; /* نفس درجة اللون لملء الفراغات */
-            height: 500px; 
+        /* --- تصميم الهيدر للكمبيوتر (Desktop) --- */
+        .header-container {
+            background-color: #032e3b; /* الدرجة الدقيقة لخلفية اللوجو */
             width: 100%;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
             border-bottom: 4px solid #c5a059;
+        }
+
+        .header-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* يضمن عدم وجود حواف بلون مختلف */
+        }
+
+        /* --- إعدادات الموبايل (Mobile) الجوهرية --- */
+        @media (max-width: 768px) {
+            .header-container {
+                height: 220px; /* ارتفاع مناسب للموبايل */
+            }
+            .header-container img {
+                width: 150%; /* تكبير الصورة قليلاً لإخفاء الفراغات الجانبية والتركيز على نوح */
+                max-width: none;
+                object-fit: cover;
+                object-position: center; /* التركيز على منتصف اللوجو */
+            }
         }
 
         nav {
@@ -84,25 +103,13 @@
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;
         }
-
-        /* --- إعدادات الموبايل (Mobile) الجوهرية --- */
-        @media (max-width: 768px) {
-            header {
-                height: 250px; /* تقليل الارتفاع ليناسب الموبايل */
-                background-size: 150% auto; /* تكبير محسوب للتركيز على اللوجو فقط */
-                background-position: center center;
-                background-color: #052e3b; /* التأكد من ملء أي حواف بنفس اللون */
-            }
-            .product-card { width: 100%; }
-            .image-container { height: 300px; }
-            nav a { margin: 0 5px; font-size: 14px; }
-            .section-title { font-size: 22px; }
-        }
     </style>
 </head>
 <body>
 
-    <header></header>
+    <div class="header-container">
+        <img src="https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png" alt="لوجو متجر نوح">
+    </div>
 
     <nav>
         <a href="#">الرئيسية</a>
@@ -128,7 +135,6 @@
 
     <footer class="contact-footer" id="contact">
         <h3>تواصل مباشرة معنا</h3>
-        <p>للطلبات والاستفسارات، يسعدنا تواصلكم:</p>
         <a href="tel:+201117306850" class="phone-link">01117306850</a>
         <p style="margin-top: 20px; color: #888;">© 2026 جميع الحقوق محفوظة لبراند نوح</p>
     </footer>
