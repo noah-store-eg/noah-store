@@ -13,16 +13,19 @@
             background-color: #f4f4f4; color: #333; scroll-behavior: smooth;
         }
 
-        /* تنسيق الهيدر المطور لمنع الحواف السوداء */
+        /* تنسيق الهيدر للكمبيوتر */
         header {
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png'); 
-            background-size: contain; /* للكمبيوتر يظهر اللوجو كاملاً */
+            background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png'); 
+            background-size: contain; /* الصورة تظهر كاملة في الكمبيوتر */
             background-repeat: no-repeat;
             background-position: center;
-            background-color: #052e3b; /* نفس درجة لون خلفية الصورة بالظبط لمنع الحواف */
-            height: 500px; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; 
-            text-align: center; border-bottom: 4px solid #c5a059;
+            background-color: #052e3b; /* نفس درجة اللون لملء الفراغات الجانبية */
+            height: 550px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 4px solid #c5a059;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
@@ -32,7 +35,7 @@
         }
         nav a {
             color: #c5a059; text-decoration: none; margin: 0 15px;
-            font-weight: bold; font-size: 16px; transition: 0.3s;
+            font-weight: bold; font-size: 18px; transition: 0.3s;
         }
         nav a:hover { color: white; }
 
@@ -88,16 +91,16 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 1000; transition: 0.3s;
         }
 
-        /* إعدادات الموبايل لمنع الحواف السوداء والزووم السيء */
+        /* إعدادات الموبايل فقط */
         @media (max-width: 600px) {
             header {
-                height: 250px; 
-                background-size: cover; /* في الموبايل الصورة تملا المكان بالكامل */
+                height: 300px; 
+                background-size: cover; /* يملأ الشاشة في الموبايل ليمنع الحواف */
                 background-position: center;
             }
             .product-card { width: 100%; }
             .image-container { height: 300px; }
-            nav a { margin: 0 8px; font-size: 14px; }
+            nav a { margin: 0 8px; font-size: 15px; }
         }
     </style>
 </head>
@@ -120,7 +123,7 @@
                     <img src="https://i.postimg.cc/kgyZSpPd/lqtt-shasht-2026-04-19-085201.png" class="img-back" alt="بخاخ فريدا - ظهر">
                 </div>
                 <h3>معطر بخاخ فريدا المميز</h3>
-                <p style="color: #888; font-size: 12px;">(المس الصورة لرؤية العبوة من الخلف)</p>
+                <p style="color: #888; font-size: 12px;">(مرر الماوس أو المس الصورة لرؤية الظهر)</p>
                 <p class="price">55 ج.م</p>
                 <a href="https://wa.me/201117306850?text=أهلاً متجر نوح، أريد طلب بخاخ فريدا (55 جنيه)" target="_blank" class="btn-add">اطلب عبر واتساب</a>
             </div>
