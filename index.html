@@ -3,67 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر نوح </title>
+    <title>متجر نوح - ملفت</title>
 
     <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png">
 
     <style>
-        body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; background-color: #f4f4f4; }
+        body {
+            margin: 0; padding: 0; font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; color: #333; scroll-behavior: smooth;
+        }
 
-        /* --- الهيدر (الكمبيوتر) --- */
+        /* --- تصميم الهيدر (الكمبيوتر - Desktop) --- */
         .header-container {
-            background-color: #032e3b; 
+            background-color: #032e3b; /* الدرجة الدقيقة لخلفية صورتك */
             width: 100%;
-            height: 700px; /* ارتفاع ثابت ومناسب للكمبيوتر */
-            overflow: hidden;
+            height: 450px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            overflow: hidden;
             border-bottom: 4px solid #c5a059;
         }
 
         .header-container img {
-            /* الأوامر دي هي اللي بتلغي الحواف في الكمبيوتر */
-            width: 100vw; /* تاخد عرض الشاشة بالكامل */
-            height: 100%; /* تاخد الارتفاع بالكامل */
-            object-fit: cover; /* تمط الصورة وتملا الفراغات غصب عنها */
-            /* الخاصية اللي تحت دي بتخلي الكود يركز على الصورة كلها في النص */
-            object-position: center center;
+            width: 100%; /* تملأ العرض بالكامل في الكمبيوتر */
+            height: 100%;
+            object-fit: cover; /* يمنع الحواف الجانبية */
+            object-position: center;
             display: block;
         }
 
-        /* --- إعدادات الموبايل (عشان يفضل مظبوط) --- */
-  @media (max-width: 768px) {
+        /* --- تصميم الهيدر (الموبايل - Mobile) --- */
+        @media (max-width: 768px) {
             .header-container {
-                height: 300px; 
+                height: 300px; /* الارتفاع الكبير اللي طلبته */
+                background-color: #032e3b; /* لدمج الصورة مع الخلفية ومنع الحواف */
             }
             .header-container img {
-                width: 100%; 
-                height: 100%;
-                object-fit: cover; 
-                /* جرب تغير النسب دي (مثلاً 80% عشان تجيب اليمين أو 20% عشان تجيب الشمال) */
-                object-position: 80% center; 
+                width: 95%; /* عرض الصورة بنسبة تسمح بظهور الأطراف */
+                height: auto;
+                max-height: 95%;
+                object-fit: contain; /* أهم أمر: يظهر اللوجو والزجاجة كاملين بدون قص */
             }
         }
-        /* باقي التنسيقات (المنيو والمنتجات) */
-        nav { background-color: #111; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #c5a059; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 18px; }
+
+        /* --- شريط التنقل (Menu) --- */
+        nav {
+            background-color: #111; padding: 15px 0; text-align: center;
+            position: sticky; top: 0; z-index: 1000;
+        }
+        nav a {
+            color: #c5a059; text-decoration: none; margin: 0 15px;
+            font-weight: bold; font-size: 18px; transition: 0.3s;
+        }
+        nav a:hover { color: white; }
+
+        /* --- حاوية المنتجات --- */
         .container { padding: 40px 20px; max-width: 1200px; margin: auto; }
-        .section-title { text-align: center; margin-bottom: 30px; font-size: 28px; }
+        .section-title { text-align: center; margin-bottom: 30px; font-size: 28px; color: #111; }
+        
         .products-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 350px; padding-bottom: 20px; }
-        .image-container { position: relative; width: 100%; height: 350px; background-color: #fff; }
-        .image-container img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; padding: 15px; }
+
+        /* --- كارت المنتج --- */
+        .product-card {
+            background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;
+            padding-bottom: 25px; border: 1px solid #eee; transition: 0.3s;
+            width: 350px; max-width: 100%;
+        }
+
+        .image-container {
+            position: relative; width: 100%; height: 350px;
+            background-color: #fff; cursor: pointer;
+        }
+        .image-container img {
+            width: 100%; height: 100%; object-fit: contain;
+            position: absolute; top: 0; left: 0;
+            transition: opacity 0.6s ease-in-out; padding: 15px;
+        }
+        .img-back { opacity: 0; }
+        
+        /* تأثير الـ Hover */
+        .product-card:hover .img-back { opacity: 1; }
+        .product-card:hover .img-front { opacity: 0; }
+
         .price { color: #27ae60; font-size: 26px; font-weight: bold; margin: 15px 0; }
-        .btn-add { background-color: #111; color: #c5a059; border: 2px solid #c5a059; padding: 10px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; }
-        .contact-footer { background-color: #111; color: white; padding: 40px; text-align: center; border-top: 5px solid #c5a059; }
-        .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background-color: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        
+        .btn-add {
+            background-color: #111; color: #c5a059; border: 2px solid #c5a059;
+            padding: 12px 35px; border-radius: 5px; cursor: pointer;
+            font-weight: bold; transition: 0.3s; text-decoration: none; display: inline-block;
+            font-size: 18px;
+        }
+        .btn-add:hover { background-color: #c5a059; color: white; }
+
+        /* --- التذييل (Footer) --- */
+        .contact-footer {
+            background-color: #111; color: white; padding: 50px 20px;
+            text-align: center; margin-top: 50px; border-top: 5px solid #c5a059;
+        }
+        .phone-link {
+            display: block; color: #c5a059; font-size: 26px;
+            text-decoration: none; font-weight: bold; margin-top: 15px;
+        }
+
+        /* --- زر الواتساب العائم --- */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px; background-color: #25d366;
+            color: white; width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4); z-index: 1000; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
 
     <div class="header-container">
-        <img src="https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png" alt="نوح">
+        <img src="https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png" alt="براند نوح">
     </div>
 
     <nav>
@@ -73,26 +130,14 @@
     </nav>
 
     <div class="container" id="products">
-        <h2 class="section-title">منتجات نوح</h2>
+        <h2 class="section-title">أحدث منتجات نوح</h2>
         <div class="products-grid">
             <div class="product-card">
                 <div class="image-container">
-                    <img src="https://i.postimg.cc/Y2JJBFxK/lqtt-shasht-2026-04-19-084935.png" alt="بخاخ">
+                    <img src="https://i.postimg.cc/Y2JJBFxK/lqtt-shasht-2026-04-19-084935.png" class="img-front" alt="منتج نوح">
+                    <img src="https://i.postimg.cc/kgyZSpPd/lqtt-shasht-2026-04-19-085201.png" class="img-back" alt="منتج نوح ظهر">
                 </div>
-                <h3>معطر بخاخ فريدا</h3>
+                <h3>معطر بخاخ فريدا المميز</h3>
+                <p style="color: #888; font-size: 12px;">(المس الصورة لرؤية الظهر)</p>
                 <p class="price">55 ج.م</p>
-                <a href="https://wa.me/201117306850" class="btn-add">اطلب الآن</a>
-            </div>
-        </div>
-    </div>
-
-    <footer class="contact-footer" id="contact">
-        <a href="tel:+201117306850" style="color: #c5a059; font-size: 24px; text-decoration: none;">01117306850</a>
-    </footer>
-
-    <a href="https://wa.me/201117306850" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35">
-    </a>
-
-</body>
-</html>
+                <a href="
