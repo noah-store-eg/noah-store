@@ -33,18 +33,18 @@
         }
 
         /* --- إعدادات الموبايل (عشان يفضل مظبوط) --- */
-      @media (max-width: 768px) {
+  @media (max-width: 768px) {
             .header-container {
-                height: 45vh; /* 45vh يعني تاخد تقريباً نص طول شاشة الموبايل مهما كان نوعه */
+                height: 300px; 
             }
             .header-container img {
                 width: 100%; 
                 height: 100%;
-                object-fit: cover; /* ده الأمر اللي هيخليها تفرش وتملأ الـ 300 بكسل كاملين */
-                object-position: center center; /* بيخلي نص الصورة هو اللي في نص الشاشة */
+                object-fit: cover; 
+                /* جرب تغير النسب دي (مثلاً 80% عشان تجيب اليمين أو 20% عشان تجيب الشمال) */
+                object-position: 80% center; 
             }
         }
-
         /* باقي التنسيقات (المنيو والمنتجات) */
         nav { background-color: #111; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: #c5a059; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 18px; }
