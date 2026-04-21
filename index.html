@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر نوح - ملفت</title>
-    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png">
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/kXVn8gs5/Gemini-Generated-Image-l3le5rl3le5rl3le.png">
 
     <style>
         body {
@@ -12,30 +12,28 @@
             background-color: #f4f4f4; color: #333; scroll-behavior: smooth;
         }
 
-        /* --- الحل النهائي لمشكلة الحواف والزوم --- */
-        .header-container {
-            /* دمج لون الخلفية مع الصورة لمنع ظهور أي حواف */
-            background-color: #032e3b; 
-            background-image: url('https://i.postimg.cc/4NrGNMvM/Gemini-Generated-Image-x4kvxlx4kvxlx4kv.png');
-            
-            /* تظهر الصورة كاملة دائماً وتتوسط المساحة */
-            background-size: contain; 
-            background-position: center; 
-            background-repeat: no-repeat;
-            
-            width: 100%;
-            /* نسبة العرض للارتفاع لضمان مرونة الهيدر */
-            aspect-ratio: 16 / 5; 
-            border-bottom: 4px solid #c5a059;
-        }
+       /* --- الحل القاطع لمشكلة الحواف --- */
+.header-container {
+    background-color: #032e3b; /* اللون الكحلي لضمان عدم ظهور بياض */
+    background-image: url('https://i.postimg.cc/kXVn8gs5/Gemini-Generated-Image-l3le5rl3le5rl3le.png');
+    
+    /* الإعدادات دي هتمنع الحواف نهائياً */
+    background-size: cover;      /* الصورة هتملأ المكان غصب عنها */
+    background-position: center; /* اللوجو هيفضل في النص دايماً */
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    height: 400px; /* ارتفاع ثابت للكمبيوتر عشان الصورة متبوظش */
+    border-bottom: 4px solid #c5a059;
+}
 
-        /* تعديلات الموبايل لزيادة وضوح اللوجو */
-        @media (max-width: 768px) {
-            .header-container {
-                aspect-ratio: 4 / 3; 
-                background-size: contain;
-            }
-        }
+/* تعديل للموبايل عشان الصورة متصغرش أوي */
+@media (max-width: 768px) {
+    .header-container {
+        height: 250px; /* ارتفاع أقل للموبايل */
+        background-size: contain; /* في الموبايل بنرجعها contain عشان اللوجو يظهر كامل */
+    }
+}
 
         /* --- شريط التنقل --- */
         nav {
